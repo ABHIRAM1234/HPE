@@ -3,17 +3,21 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-- main
+- master
 
 resources:
 - repo: self
 
 variables:
+  dockerRegistryServiceConnection: '{{ containerRegistryConnection.Id }}'
+  imageRepository: 'javascriptdocker'
+  containerRegistry: 'sampleappcontinerregistry.azurecr.io'
+  dockerfilePath: '$(Build.SourcesDirectory)/app/Dockerfile'
   tag: '$(Build.BuildId)'
 
 stages:
 - stage: Build
-  displayName: Build image
+  displayName: Build and push stage
   jobs:
   - job: Build
     displayName: Build
@@ -23,7 +27,9 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        command: build
+        command: buildAndPush
+        repository: $(imageRepository)
         dockerfile: 'hello'
+        containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
