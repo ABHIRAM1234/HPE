@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "aksteam3-4493"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "aksteam3-4493"
+  template:
+    metadata:
+      labels:
+        app: "aksteam3-4493"
+    spec:
+      containers:
+        - name: "aksteam3-4493"
+          image: "aksteam3.azurecr.io/aksteam3"
+          ports:
+          - containerPort: 473
