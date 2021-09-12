@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "aks-5da5"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "aks-5da5"
+  template:
+    metadata:
+      labels:
+        app: "aks-5da5"
+    spec:
+      containers:
+        - name: "aks-5da5"
+          image: "aksteam3.azurecr.io/aks"
+          ports:
+          - containerPort: 80
