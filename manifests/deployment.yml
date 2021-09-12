@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "aks-56f4"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "aks-56f4"
+  template:
+    metadata:
+      labels:
+        app: "aks-56f4"
+    spec:
+      containers:
+        - name: "aks-56f4"
+          image: "aksteam3.azurecr.io/aks"
+          ports:
+          - containerPort: 80
