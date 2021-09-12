@@ -1,1 +1,6 @@
-docker run -it --rm --name my-first-python-script -v "$PWD":/usr/src/widget_app python:3 python my_script.py
+FROM python:3
+ADD arimas_final.py /
+RUN pip install pystrich
+CMD [ "python", "./arimas_final.py" ]
+docker build -t python-barcode .
+docker run python-barcode
