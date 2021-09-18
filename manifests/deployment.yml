@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "streamlitaks-d630"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "streamlitaks-d630"
+  template:
+    metadata:
+      labels:
+        app: "streamlitaks-d630"
+    spec:
+      containers:
+        - name: "streamlitaks-d630"
+          image: "streamlittest1.azurecr.io/streamlitaks"
+          ports:
+          - containerPort: 8501
