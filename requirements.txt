@@ -6,4 +6,6 @@ matplotlib
 keras
 tensorflow
 statsmodels
+sklearn
+math
 psycopg2-binary
