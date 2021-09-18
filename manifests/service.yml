@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: "aks-1b61"
+    labels:
+        app: "aks-1b61"
+spec:
+    type: LoadBalancer
+    ports:
+    - port: 8501
+      targetPort: 8501
+      protocol: TCP
+      name: http
+    selector:
+        app: "aks-1b61"
