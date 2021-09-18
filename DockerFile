@@ -4,5 +4,8 @@ FROM python:3.8
 # set the working directory in the container
 WORKDIR /HPE
 
+EXPOSE 8501
+
+ENTRYPOINT ["streamlit", "run"]
 # command to run on container start
-CMD [ "python", "./arimas_final.py" ]
+CMD [ "HPE_Proj.py" ]
