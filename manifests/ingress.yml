@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "streamlitaks-d630"
+    labels:
+        app: "streamlitaks-d630"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: streamlittest1-streamlitaks-d630.daedef2a4df8473fac13.eastus.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "streamlitaks-d630"
+                servicePort: 8501
