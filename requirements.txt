@@ -3,4 +3,5 @@ pandas
 numpy
 seaborn
 matplotlib
+keras
 psycopg2-binary
