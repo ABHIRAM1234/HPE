@@ -4,4 +4,6 @@ numpy
 seaborn
 matplotlib
 keras
+tensorflow
+statsmodels
 psycopg2-binary
