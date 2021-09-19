@@ -7,4 +7,5 @@ keras
 tensorflow
 statsmodels
 sklearn
+openpyxl
 psycopg2-binary
