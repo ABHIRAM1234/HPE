@@ -51,7 +51,7 @@ def diff_month(d1, d2):
     return (d1.year - d2.year) * 12 + d1.month - d2.month
 st.write("Splitting the dataset......................")
 n = diff_month(dpred , df.iloc[len(df)-1,0])
-
+st.write("Running LSTM....................")
 for _ in range(4):## Main code
     d = df.iloc[len(df)-1 ,0]
     future_date = d + relativedelta(months=1)
@@ -80,7 +80,6 @@ for _ in range(4):## Main code
     X_train = X_train.reshape(X_train.shape[0], 1, X_train.shape[1])
     X_test, y_test = test_set_scaled[:, 1:], test_set_scaled[:, 0:1]
     X_test = X_test.reshape(X_test.shape[0], 1, X_test.shape[1])
-    st.write("Running LSTM....................")
     regressor = Sequential()
     regressor.add(LSTM(units = 5, return_sequences = True, input_shape=(X_train.shape[1], X_train.shape[2])))
     regressor.add(Dropout(0.6))
