@@ -52,6 +52,7 @@ def diff_month(d1, d2):
 #st.write("Splitting the dataset......................")
 n = diff_month(dpred , df.iloc[len(df)-1,0])
 #st.write("Running LSTM....................")
+st.write("Running.........")
 for _ in range(4):## Main code
     d = df.iloc[len(df)-1 ,0]
     future_date = d + relativedelta(months=1)
