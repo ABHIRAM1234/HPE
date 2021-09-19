@@ -36,7 +36,7 @@ if start_date < datetime.date(2021,8,1):
 start_date = pd.to_datetime(start_date)
 #start_date = start_date.isoformat()
 #st.write(start_date)
-st.write("Preparing data...........")
+#st.write("Preparing data...........")
 df = pd.read_excel('data_monthly.xlsx')
 df['Sale Date'] = pd.to_datetime(df['Sale Date'])
 df.set_index('Sale Date', inplace=True)
@@ -49,9 +49,9 @@ dpred = start_date#pd.to_datetime((input("Date Input")))
 
 def diff_month(d1, d2):
     return (d1.year - d2.year) * 12 + d1.month - d2.month
-st.write("Splitting the dataset......................")
+#st.write("Splitting the dataset......................")
 n = diff_month(dpred , df.iloc[len(df)-1,0])
-st.write("Running LSTM....................")
+#st.write("Running LSTM....................")
 for _ in range(4):## Main code
     d = df.iloc[len(df)-1 ,0]
     future_date = d + relativedelta(months=1)
