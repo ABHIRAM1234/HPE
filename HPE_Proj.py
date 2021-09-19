@@ -46,7 +46,7 @@ dpred = start_date#pd.to_datetime((input("Date Input")))
 
 def diff_month(d1, d2):
     return (d1.year - d2.year) * 12 + d1.month - d2.month
-st.write("Spiltting the dataset......................")
+st.write("Splitting the dataset......................")
 n = diff_month(dpred , df.iloc[len(df)-1,0])
 
 for _ in range(4):## Main code
