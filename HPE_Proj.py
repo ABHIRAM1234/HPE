@@ -30,6 +30,9 @@ import datetime
 st.title('Ware Assistant')
 today = datetime.date.today()
 start_date = st.date_input('Input date', today)
+if start_date < datetime.date(2021,8,1):
+    st.text("Date should be more than 2021-08-01")
+    st.stop()
 start_date = pd.to_datetime(start_date)
 #start_date = start_date.isoformat()
 #st.write(start_date)
@@ -85,7 +88,7 @@ for _ in range(4):## Main code
     #regressor.add(Dropout(0.9))
     regressor.add(Dense(units = 1))
     regressor.compile(loss='mean_squared_error', optimizer='adam',metrics=['mean_absolute_error'])
-    history = regressor.fit(X_train, y_train,validation_data=(X_test,y_test), epochs=100, batch_size=1, verbose=1, shuffle=False)
+    history = regressor.fit(X_train, y_train,validation_data=(X_test,y_test), epochs=50, batch_size=1, verbose=1, shuffle=False)
     y_pred = regressor.predict(X_test,batch_size=1)#for multistep prediction, you need to replace X_test values with the predictions coming from t-1
     y_pred = y_pred.reshape(y_pred.shape[0], 1, y_pred.shape[1])#rebuild test set for inverse transform
     pred_test_set = []
